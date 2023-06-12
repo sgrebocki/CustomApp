@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".LoginActivity"
     android:gravity="center">
 
     <LinearLayout
@@ -71,14 +70,27 @@
                 app:cornerRadius="30dp" />
 
             <TextView
-                android:id="@+id/tvRedirectToSignup"
+                android:id="@+id/tvForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:padding="8dp"
-                android:text="Nie jesteś zarejestrowany? Zarejestruj się"
+                android:text="Zapomniałeś hasła?"
+                android:shadowColor="@color/white"
+                android:shadowRadius="2"
+                android:textColor="@color/purple_200"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvRedirectToSignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:padding="8dp"
+                android:text="Nie masz konta? Zarejestruj się"
                 android:shadowColor="@color/white"
                 android:shadowRadius="2"
                 android:textColor="@color/purple_200"

@@ -92,7 +92,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:padding="8dp"
-                android:text="Jesteś już zarejestrowany? Zaloguj się"
+                android:text="Masz konto? Zaloguj się"
                 android:textColor="@color/purple_200"
                 android:textSize="18sp" />
 

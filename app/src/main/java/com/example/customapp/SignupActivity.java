@@ -19,24 +19,12 @@ public class SignupActivity extends AppCompatActivity {
     private ActivitySignupBinding binding;
     private FirebaseAuth firebaseAuth;
 
-    private EditText etSupEmail;
-    private EditText etSupPassword;
-    private EditText etSupConfirmPassword;
-    private MaterialButton btnSup;
-    private TextView tvRedirectToLogin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         firebaseAuth = FirebaseAuth.getInstance();
-
-//        etSupEmail = findViewById(R.id.etSupEmail);
-//        etSupPassword = findViewById(R.id.etSupPassword);
-//        etSupConfirmPassword = findViewById(R.id.etSupConfirmPassword);
-//        btnSup = findViewById(R.id.btnSup);
-//        tvRedirectToLogin = findViewById(R.id.tvRedirectToLogin);
 
         binding.btnSup.setOnClickListener(view -> {
             String email = binding.etSupEmail.getText().toString();

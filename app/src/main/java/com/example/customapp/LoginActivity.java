@@ -45,10 +45,55 @@ public class LoginActivity extends AppCompatActivity {
                 }
         });
 
+        binding.tvForgotPassword.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+            view = getLayoutInflater().inflate(R.layout.dialog_forgotpassword, null);
+            EditText userEmail = view.findViewById(R.id.etForgotBox);
+            builder.setView(view);
+
+            AlertDialog dialog = builder.create();
+            view.findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    compareEmail(userEmail);
+                    dialog.dismiss();
+                }
+            });
+
+            view.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            }
+
+            dialog.show();
+
+        });
+
         binding.tvRedirectToSignup.setOnClickListener(view -> {
             Intent redirectToSignupIntent = new Intent(LoginActivity.this, SignupActivity.class);
             startActivity(redirectToSignupIntent);
         });
 
+    }
+
+    private void compareEmail(EditText email) {
+        if (email.getText().toString().isEmpty()) {
+            return;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
+            return;
+        }
+        firebaseAuth.sendPasswordResetEmail(email.getText().toString())
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Sprawdź skrzynkę email", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
