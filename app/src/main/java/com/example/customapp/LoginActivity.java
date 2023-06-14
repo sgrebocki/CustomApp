@@ -70,9 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             if (dialog.getWindow() != null) {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             }
-
             dialog.show();
-
         });
 
         binding.tvRedirectToSignup.setOnClickListener(view -> {
